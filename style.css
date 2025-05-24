@@ -1,0 +1,784 @@
+/* AJUSTES GENERALES */
+*{
+    box-sizing: border-box;
+}
+body{
+    background: #fcf4fa;
+    font-family: "Belleza", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*BARRA DE MENÚ Y DESPLEGABLE*/
+/*Estilos generales*/
+.navbar{
+    background-color: transparent !important; 
+    backdrop-filter: blur(4px); /*Efecto cristal para que se pueda ver el video*/
+    box-shadow: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    }
+    .iconoInicio {
+    width: 50px;
+    }
+    .icono-inicio {
+    width: 30px;
+    height: auto;
+    margin-top: -2px; /*Para alinearlo verticalmente*/
+    transition: transform 0.3s ease;
+    }
+    /*Estilo para los enlaces/secciones*/
+    .navbar-nav .nav-item .nav-link {
+    color: #8b1aa5;
+    font-size: 20px;
+    transition: color 0.3s ease; /*transición suave al pasar el cursor*/
+    padding: 0 15px;
+    font-weight: 600;
+    }
+    .navbar-nav .nav-link:hover {
+    color:#ff88f9;
+    }
+    .nav-link.active {
+    color: black;
+    }
+    .nav-link{  /*Alineo en el centro el menú deplegable cuando los despliego*/
+    display: flex;
+    justify-content: center;
+    }
+
+/*CONTENEDOR PRINCIPAL CABECERA*/
+/*Configuración de imagen de fondo*/
+.miContenedor{
+    width: 100%; /*Todo el ancho de la ventana*/
+    min-height: 100vh;  /*Mínimo todo el alto de la ventana del navegador*/
+    position: relative; /*La capa semitransparente cubre toda la altura del contendor*/
+    overflow: hidden;/*Evito el desplazamiento si la imagen excede el contenedor*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /*Desplazamiento de la sombre: horizontal,vertical y tamaño*/
+    }
+    .video-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; /* enfoca más arriba (muestra mejor cabeza y hombros) */
+    z-index: 0;
+    }
+    /*Asegura que el contenido esté por encima de la capa semitransparente */
+    .miContenido{
+    position: relative;
+    z-index: 2;
+    padding-top: 200px;
+    }
+    /*Frases del contenedor*/
+    h1{
+    font-size: 80px;
+    color:#ff88f9;
+    font-weight: 900; /*Para que el grosor de la letra coincida con el del logo*/
+    }
+    #logoTitulo{
+    width: 200px;
+    }
+    h1:hover{
+    color: #8b1aa5;
+    transition: color 0.3s ease; /*transición suave al pasar el cursor*/
+    }
+    .miBoton{
+    background-color:#e6e3d2; /* Color de fondo */
+    color: #8b1aa5;
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px 20px; /* Relleno personalizado */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: transform 0.2s; /* Animación de transición */
+    }
+    .miBoton:hover {
+    background-color:#e6e3d2; /* Color de fondo */ 
+    transform: scale(1.1); /* Aumenta el tamaño un poco al hacer hover */
+    }
+
+/*LOGO ANIMADO - SVG CON ANIMACIÓN LATIDO*/
+.logo-animado {
+    animation: latido 2s infinite ease-in-out;
+    }   
+    @keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    }
+
+/*ANIMACIÓN TARJETA REGALO*/
+/* TARJETA REGALO EMERGENTE */
+#tarjeta-regalo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: 90%;
+    background-color: #eeeae4;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    z-index: 9999;
+    animation: aparecer 0.8s ease-out forwards;
+    text-align: center;
+    padding: 40px 30px;
+    opacity: 1;
+    transition: opacity 1s ease;
+    }
+    /*Clase para ocultar con desvanecimiento*/
+    #tarjeta-regalo.oculto {
+    opacity: 0;
+    pointer-events: none;
+    }
+    .contenido-tarjeta {
+    position: relative;
+    padding: 20px;
+    }
+    /* Animación de entrada */
+    @keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    }
+    .cerrar-tarjeta {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #000;
+    background-color: transparent;
+    border: none;
+    }
+
+/*SECCION CLINICA*/
+/*Estilos para mi sección*/
+.seccion-clinica {
+    padding: 80px 60px;
+    width: 100%;
+    position: relative;
+    }
+    .texto-maquina-container {
+    font-size: 18px;
+    min-height: 200px;
+    line-height: 1.6;
+    color: #49324e;
+    }
+    .texto-maquina {
+    white-space: pre-wrap;
+    border-right: 2px solid #b45aa5;
+    padding: 5px 30px;
+    min-height: 140px;
+    }
+    .firma-manuscrita {
+    width: 180px;
+    margin-top: 20px;
+    display: none;
+    opacity: 0;
+    }
+    .firma-animada {
+    font-family: 'Dancing Script', cursive; /*Letra chula para la firma*/
+    font-size: 36px;
+    color: #000000;
+    margin-top: 20px;
+    }
+    .imagen-clinica-cambio {
+    max-width: 300px;
+    margin: 0 auto;
+    }
+    .img-cambio {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.5s ease;
+    opacity: 1;
+    }
+
+/*CANVAS EN LA SECCION CLINICA*/
+.degradado-animado {
+    position: relative; /* para posicionar el canvas dentro */
+    background: linear-gradient(-45deg, #f0d8ed, #e0bfdb, #f8f7f0, #fcfafa);
+    background-size: 300% 300%;
+    animation: gradienteAnimado 10s ease infinite;
+    overflow: hidden;
+    }
+    #canvas-clinica {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    }
+
+/*DEGRADADO ANIMADOS PARA EL FONDO DE LAS DOS SECCIONES CLINICA+SERVICIOS*/
+.degradado-animado {
+    background: linear-gradient(-45deg, #f0d8ed, #e0bfdb, #f8f7f0, #fcfafa);
+    background-size: 300% 300%;
+    animation: gradienteAnimado 10s ease infinite;
+    }
+    @keyframes gradienteAnimado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+    }
+
+/*ESTILO PARA LAS BARRAS ANIMADAS*/
+/* SECCIÓN BARRAS ANIMADAS */
+.seccion-puzzle {
+    padding: 100px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: relative;
+    width: 60%;
+    position: relative;
+    }
+    .barra {
+    background-color: #f1eeeb;
+    color: #8b1aa5;
+    font-size: 15px;
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0;
+    width: 0;
+    position: relative;
+    text-align: center;
+    }
+    .barra:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    }
+    .sec-servicios {
+    font-size: 30px;
+    font-weight: 600;
+    color: #8b1aa5;
+    text-align: center;
+    margin:15px 0px 30px 0px;
+    text-transform: uppercase; /* Opcional */
+    }
+    .titulo-barra {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    }
+    .texto-barra {
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #000000;
+    padding-left: 10px;
+    padding-right: 10px;
+    white-space: normal;
+    }
+    .img-expandida {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    }
+    .btn-custom {
+    color: #000;
+    font-weight: normal;
+    font-size: 13px;
+    }
+    /*EFECTO - Alineaciones iniciales según dirección de entrada*/
+    .barra1, .barra3 {
+    align-self: flex-start;
+    }
+    .barra2, .barra4 {
+    align-self: flex-end;
+    }
+
+/*ESTILO PARA EL CARRUSEL BOOTSTRAP*/
+/*SECCIÓN TRABAJOS - GALERIA DE TRES IMAGENES*/
+.seccion-trabajos {
+    min-height: 100vh;    
+    background-image: url(IMAGENES/fondoLogoMultiple.png);
+    background-size: cover;
+    background-position: center;
+    position: relative; /*Necesario para el before de abajo*/
+    z-index: 1; 
+    overflow: hidden;
+    padding: 120px; 
+    position: relative;
+    }
+    .seccion-trabajos::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(250, 247, 245, 0.8); /*Color con opacidad*/
+    z-index: 0;
+    }
+    .seccion-trabajos > * {
+    position: relative;
+    z-index: 1;
+    }
+
+    .seccion-trabajos h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #8b1aa5;
+    text-align: center;
+    padding: 20px 0px 60px 0px;
+    z-index: 9999;
+    }
+    .seccion-trabajos p {
+    font-size: 30px;
+    font-weight: 600;
+    color: #8b1aa5;
+    text-align: center;
+    padding: 60px 0px 0px 0px;
+    z-index: 9999;
+    }
+    .carousel {
+        padding-top: 0px;
+    }
+    .imagen-hover {
+    position: relative;
+    width: 70%;              
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    overflow: hidden;
+    }
+    .imagen-hover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+    }
+    .imagen-hover:hover img {
+    transform: scale(1.05);
+    }
+    .titulo-hover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: #49324e;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.4s ease;
+    }
+    .imagen-hover:hover .titulo-hover {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    /*Controles para el carrusel*/
+    .custom-arrow {
+    background: none;
+    border: none;
+    font-size: 40px;
+    color: #8b1aa5;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    }
+    .custom-arrow i {
+    color: #8b1aa5;
+    transition: none;
+    }
+    .custom-arrow:hover i,
+    .custom-arrow:focus i {
+    color: #8b1aa5;
+    }
+    .carousel-control-prev.custom-arrow {
+    left: -90px;
+    }
+    .carousel-control-next.custom-arrow {
+    right: -90px;
+    }
+
+
+/*SECCION CONOCENOS*/
+.seccion-conocenos {
+    z-index: 1;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 120px 80px 0px 80px;
+    }
+    .seccion-conocenos h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #8b1aa5;
+    padding: 20px 0 60px;
+    }
+    .seccion-conocenos h6 {
+    background:#8b1aa5;
+    font-size: 20px;
+    border-radius: 10px;
+    color: white;
+    padding: 8px;
+    margin-bottom: 20px;
+    }
+    .seccion-conocenos p {
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 10px;
+    }
+    .seccion-conocenos a {
+    color: #8b1aa5;
+    text-decoration: none;
+    }
+    .seccion-conocenos a:hover {
+    text-decoration: underline;
+    }
+    /*Redes sociales*/
+    .seccion-conocenos img[alt*="Facebook"],
+    .seccion-conocenos img[alt*="Twitter"],
+    .seccion-conocenos img[alt*="Instagram"],
+    .seccion-conocenos img[alt*="LinkedIn"] {
+    margin: 5px 8px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .seccion-conocenos img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    }
+    /*Iframe del mapa*/
+    .seccion-conocenos iframe {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    }
+/*ANIMACIÓN PARA LAS 3 COLUMNAS*/
+/*Animación de entrada desde abajo*/
+.columna-animada {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.8s ease-out;
+    }
+    .columna-visible {
+     opacity: 1;
+    transform: translateY(0);
+    }
+
+/*CANVAS EN LA SECCION CONOCENOS*/
+#canvas-conocenos {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    }
+    .seccion-conocenos {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    }
+
+/*SECCIÓN AGENDA*/
+/*Estilo personalizado para la tabla de agenda*/
+.seccion-agenda {
+    padding: 80px 40px;
+    position: relative;
+    z-index: 1;
+    }
+    .seccion-agenda h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #8b1aa5;
+    text-align: center;
+    padding: 0px 0px 40px 0px;
+   
+    }
+    .agenda-tabla {
+    background-color: #fef9fc;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(139, 26, 165, 0.2);
+    font-family: "Belleza", sans-serif;
+    }
+    .agenda-tabla table {
+    margin-bottom: 0;
+    border-collapse: collapse;
+    }
+    .agenda-tabla th,
+    .agenda-tabla td {
+    padding: 12px;
+    vertical-align: middle;
+    border: 1px solid #e2cce3;
+    font-size: 16px;
+    color: #49324e;
+    }
+    .agenda-tabla thead {
+    background-color: #e9d8f0;
+    color: #8b1aa5;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    }
+    .agenda-tabla tbody tr:hover {
+    background-color: #f5ebf9;
+    }
+    .agenda-tabla td:first-child {
+    font-weight: bold;
+    color: #8b1aa5;
+    }
+
+
+/*FORMULARIO*/
+.seccion-registro {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 25px 0px 0px 100px;
+    }
+    .fondo-imagen {
+    background-image: url("IMAGENES/FondoFormulario.png"); 
+    }
+    .form-wrapper {
+    background: rgba(245, 240, 232, 0.95); 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(72, 15, 76, 0.5);
+    }
+    .miformulario .btn {
+    padding: 6px 12px;
+    background-color: #b45aa5;
+    border: none;
+    }
+    .miformulario .btn:hover {
+    background-color: #600360;
+    }
+
+
+/*ICONO FLOTANTE CON FORMA DE CIRCULO*/
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    background-color: #8b1aa5; /*color de fondo*/
+    color: #e6e3d2; /*color de la flecha*/
+    border-radius: 50%; /*círculo perfecto*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: none;
+    z-index: 9999;
+    }
+.back-to-top:hover {
+    background-color: #ff88f9;  
+    transform: scale(1.1);
+    }
+.back-to-top i {
+    font-size: 35px;
+    color: inherit;
+    margin: 0; /*IMPORTANTE: elimina cualquier margen*/
+    padding: 0;
+    display: block;
+    text-align: center; /*opcional como refuerzo*/
+    }
+
+
+ 
+
+
+
+
+
+
+/*********WEB RESPONSIVE*********/
+/*-----DISPOSITIVOS MOVILES-----*/
+@media (max-width: 767.98px){
+    .iconoInicio {
+        width: 35px;
+    }
+    /*MENÚ HAMBURGUESA*/
+    .nav-link{ 
+        align-items: center; /*Alineo en el centro el menú deplegable cuando los despliego*/
+    }
+    .navbar-nav .nav-item .nav-link {
+        background: #faf7f5;
+        padding: 15px 0px;
+    }
+    /*CABECERA*/
+    .miContenido h1{
+        font-size: 30px;
+        padding: 0px 80px;
+    }
+    h1:hover{
+    color:#331d38;
+    }
+    #logoTitulo{
+        width: 80px;
+    }
+    /*Añado para asegurarme que el video de la cabecera no tenga zonas vacias en dispositivos pequeños*/
+    .video-fondo{
+        height: 100%;
+    }
+    .miContenido p{
+        font-size: 16px;
+    }
+    /*Adapto la animación tarjeta regalo*/
+    #tarjeta-regalo {
+        width: 90%;
+        padding: 25px 20px;
+    }
+    .boton-comprar {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+    /*SECCIÓN CLINICA*/
+    .imagen-clinica-cambio {
+        padding-top: 30px;
+    }
+    .texto-maquina-container {
+        min-height: 300px;
+        }
+    .texto-maquina {
+        min-height: 140px;
+        }
+    /*SERVICIOS*/
+    .seccion-puzzle {
+        width: 100%;
+        min-height: auto;
+    }
+    .seccion-puzzle h2 {
+        font-size: 20px;
+    }
+    
+    /*TRABAJOS - GALERIA AUTOMÁTICA*/
+    .seccion-trabajos {
+        padding: 70px 100px 0px 100px;
+    }
+    .seccion-trabajos h2 {
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+    .seccion-trabajos p {
+        font-size: 20px;
+        padding: 0px;
+    }
+    .imagen-hover {
+        width: 90%;          
+        height: auto;        
+        margin-bottom: 3px; 
+    }
+    .custom-arrow {
+        font-size: 24px;  
+    }
+    .custom-arrow i {
+        font-size: 24px;
+    }
+    .carousel-control-prev.custom-arrow {
+        left: -60px;
+    }
+    .carousel-control-next.custom-arrow {
+        right: -60px;
+    }
+    /*CONOCENOS*/
+    .seccion-conocenos h2{
+        font-size: 18px;
+    }
+    .columna-animada {
+        padding: 0px;
+    }
+    .rrss i{
+        font-size: 12px;
+    }
+
+    /*SECCION AGENDA*/
+    .seccion-agenda h2{
+        font-size: 20px;
+    }
+    /*REGISTRO*/
+    .seccion-registro {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .form-wrapper {
+        background: rgba(245, 240, 232, 0.95);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(72, 15, 76, 0.5);
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+    }
+   
+
+
+
+}
+
+/*********WEB RESPONSIVE*********/
+/*-----DISPOSITIVOS TABLET-----*/
+@media (min-width: 767.99px) and (max-width: 1024px){
+    
+    .video-fondo{    /*Añado para asegurarme que el video de la cabecera no tenga zonas vacias en dispositivos pequeños*/
+        height: 100%;
+    }
+    .btn-custom{
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    .content-card h4{
+        font-size: 25px;
+    }
+    .content-card p{
+        font-size: 18px;
+    }
+    .seccion-conocenos h2{
+        font-size: 20px;
+    }
+}
+
+/*********WEB RESPONSIVE*********/
+/*-----DISPOSITIVOS PC-----*/
+@media(min-width:1025px){
+    .content-card h4{
+        font-size:22px;
+        
+    }
+    .content-card p{
+        font-size: 18px;
+    }
+}

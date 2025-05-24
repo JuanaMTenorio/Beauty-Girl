@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--METADATOS-->
+    <meta charset="UTF-8">
+    <meta name="author" content="Juana Martín Tenorio">
+    <meta name="description" content="Web salón de belleza">
+    <meta name="keywords" content="salón de belleza, estética, tratamientos, cosméticos, maquillaje, laser">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--Se ajusta a las distintas ventanas del navegador, en los distintos dispositivos--> 
+    <!--TITULO-->
+    <title>Beauty Girl - Salón de belleza</title>
+    <!--FAVICON - ICONO PARA PESTAÑA WEB-->
+    <link rel="icon" type="image/x-icon" href="IMAGENES/Favicon.png">
+    <!--BOOTSTRAP--> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">  
+    <!--ICONOS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!--CSS-->
+    <link rel="stylesheet" href="style.css">
+    <!--GOOGLE FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--BARRA DE NAVEGACION DESPLEGABLE BOOTSTRAP-->
+    <nav id="top" class="navbar navbar-expand-md border-bottom">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img class="iconoInicio" src="IMAGENES/NuevoLogo.svg" alt="Icono Inicio de la página web"Favicon>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-toggler">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#Inicio"><img src="IMAGENES/iconoInicio.png" alt="Inicio" class="icono-inicio"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Servicios">SERVICIOS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Trabajos">NUESTRO TRABAJO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Conocenos">CONÓCENOS</a>
+            </li>      
+            <li class="nav-item">
+              <a class="nav-link" href="#Registro">REGISTRO</a>
+            </li>            
+          </ul> 
+        </div>
+      </div>
+    </nav>
+
+    <!--ANIMACIÓN TARJETA REGALO-->
+    <div id="tarjeta-regalo" class="animado">
+      <div class="contenido-tarjeta">
+        <span class="cerrar-tarjeta">x</span>
+        <h3>🎁 TARJETAS DE REGALO PERSONALIZADAS</h3>
+        <p>Elige el tratamiento ideal para regalar: facial, corporal, maquillaje y más. Desde 100€ hasta 1500€</p>
+        <a href="#Registro" class="boton-comprar">Reservar</a>
+      </div>
+    </div>
+
+    <!--CONTENIDO PRINCIPAL EN LA CABECERA-->
+    <main id="Inicio" class="miContenedor">
+      <video src="IMAGENES/videoCabecera.mp4"autoplay muted loop playsinline class="video-fondo" >
+        Tu navegador no puede reproducir el video
+      </video>
+      <div class="text-center miContenido">
+          <h1>Bienvenidos a <img src="IMAGENES/NuevoLogo.svg" id="logoTitulo" alt="Logo animado" class="logo-animado">eauty Girl</h1>
+          <!--<p>Tu salón de belleza especializado en tratámientos, cosméticos y cuidado personal</p>-->
+          <a href="#Registro" class=" miBoton btn">Pide tu cita</a>
+      </div>
+    </main>
+
+    <div class="degradado-animado"> <!--div que engloba las secciones clinica y servicios para añadir background conjunto-->
+      <canvas id="canvas-clinica"></canvas>
+      <!--SECCIÓN CLÍNICA + ROTACIÓN DE IMAGEN DIRECTORA/FACHADA CLINICA-->
+      <section id="clinica" class="seccion-clinica container-fluid">
+        <div class="row align-items-center">
+          <!--Texto que aparecerá a la izquierda-->
+          <div class="col-md-6 text-start">
+            <div class="texto-maquina-container">
+              <p id="texto-maquina" class="texto-maquina"></p>
+              <p id="firma-escrita" class="firma-animada"></p>
+            </div>
+          </div>
+          <!--Imagenes alternando a la derecha-->
+          <div class="col-md-6 text-center">
+            <div class="imagen-clinica-cambio">
+              <img src="IMAGENES/directora.png" alt="Imagen clínica" id="imagen-rotativa" class="img-cambio">
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--SECCION SERVICIOS - BARRAS ANIMADAS-->
+      <section id="Servicios" class="seccion-puzzle container-fluid">
+        <div><h2 class="sec-servicios">VEN A DISFRUTAR DE NUESTROS SERVICIOS</h2></div>
+        <!--BARRA 1 ANIMADA Y CON INFO DESPLEGABLE-->
+        <div class="barra barra1" data-ancho="100%" data-origen="left">
+          <p class="titulo-barra">Tratamientos Estéticos</p>
+          <div class="collapse" id="tratamientos">
+            <div class="row align-items-stretch g-0 mt-3">
+              <div class="col-12 col-md-8 p-3">
+                <p class="texto-barra">
+                  Ofrecemos una amplia gama de tratamientos diseñados para mejorar la salud y el aspecto de tu piel.
+                  <br>• Limpiezas faciales personalizadas para distintos tipos de piel.
+                  <br>• Peelings químicos para eliminar células muertas y renovar la piel.
+                  <br>• Terapias antienvejecimiento, como radiofrecuencia facial y ácido hialurónico.
+                  <br>• Tratamientos hidratantes profundos para combatir la sequedad.
+                </p>
+              </div>
+              <div class="col-12 col-md-4 p-0">
+                <img src="IMAGENES/Tratamientos estéticos.png" alt="Tratamientos Estéticos" class="img-expandida">
+              </div>
+            </div>
+          </div>
+          <!--Botón-->
+          <button class="btn btn-custom mt-2" type="button"
+            data-bs-toggle="collapse" data-bs-target="#tratamientos"
+            aria-expanded="false" aria-controls="tratamientos">
+            Leer más
+          </button>
+        </div>
+        <!--BARRA 2-->
+        <div class="barra barra2" data-ancho="100%" data-origen="right">
+          <p class="titulo-barra">Depilación Corporal</p>
+          <div class="collapse" id="innovacion">
+            <div class="row align-items-stretch g-0 mt-3">
+              <!--Texto-->
+              <div class="col-12 col-md-8 p-3">
+                <p class="texto-barra">
+                  En nuestra clínica trabajamos con tecnologías avanzadas 
+                  para ofrecerte resultados efectivos y duraderos. Entre nuestros tratamientos se encuentran:
+                  Depilación láser de diodo para zonas específicas o corporales completas.
+                  Depilación tradicional con cera caliente o tibia, ideal para pieles sensibles.
+                  Diseño de cejas y perfilado facial para una apariencia pulida y natural.
+                  Paquetes combinados para múltiples sesiones de depilación.
+                </p>
+              </div>
+              <!--Imagen-->
+              <div class="col-12 col-md-4 p-0">
+                <img src="IMAGENES/Depilación corporal.png" alt="Innovación" class="img-expandida">
+              </div>
+            </div>
+          </div>
+          <!--Botón-->
+          <button class="btn btn-custom mt-2" type="button"
+            data-bs-toggle="collapse" data-bs-target="#innovacion"
+            aria-expanded="false" aria-controls="innovacion">
+            Leer más
+          </button>
+        </div>
+        <!--BARRA 3-->
+        <div class="barra barra3" data-ancho="100%" data-origen="left">
+          <p class="titulo-barra">Maquillaje Profesional</p>
+          <div class="collapse" id="belleza">
+            <div class="row align-items-stretch g-0 mt-3">
+              <!--Texto-->
+              <div class="col-12 col-md-8 p-3">
+                <p class="texto-barra">
+                  Nuestra misión es ayudarte a realzar tu belleza natural.
+                  Nuestros maquilladores expertos están preparados para cualquier ocasión especial. Algunos de nuestros servicios incluyen:
+                  Maquillaje social para bodas, fiestas y eventos formales.
+                  Maquillaje de alta definición (HD) para sesiones de fotos y grabaciones.
+                  Clases de automaquillaje personalizadas, con tips y productos recomendados.
+                  Creación de looks temáticos para disfraces y eventos creativos.
+                </p>
+              </div>
+              <!--Imagen-->
+              <div class="col-12 col-md-4 p-0">
+                <img src="IMAGENES/Maquillaje profesional.png" alt="Belleza" class="img-expandida">
+              </div>
+            </div>
+          </div>
+          <!--Botón-->
+          <button class="btn btn-custom mt-2" type="button"
+            data-bs-toggle="collapse" data-bs-target="#belleza"
+            aria-expanded="false" aria-controls="belleza">
+            Leer más
+          </button>
+        </div>
+        <!--BARRA 4-->
+        <div class="barra barra4" data-ancho="100%" data-origen="right">
+          <p class="titulo-barra">Micropigmentación</p>
+          <div class="collapse" id="resultados">
+            <div class="row align-items-stretch g-0 mt-3">
+              <!--Texto-->
+              <div class="col-12 col-md-8 p-3">
+                <p class="texto-barra">
+                Redefine tus rasgos con nuestros servicios 
+                de micropigmentación. Ya sea para embellecer cejas, labios o párpados, utilizamos 
+                técnicas avanzadas y productos seguros para lograr un acabado duradero y natural.                  <br>• Evaluaciones previas y seguimiento continuo.
+                Nuestras técnicas de micropigmentación se realizan con precisión y productos de alta calidad para resultados que destacan. Algunos de nuestros servicios incluyen:
+                Diseño y micropigmentación de cejas pelo a pelo o sombreado.
+                Micropigmentación de labios para corregir asimetrías o mejorar el color natural.
+                Delineado permanente en ojos para realzar la mirada.
+                Corrección y eliminación de micropigmentaciones antiguas o desactualizadas.
+                </p>
+              </div>
+              <!--Imagen-->
+              <div class="col-12 col-md-4 p-0">
+                <img src="IMAGENES/Servicio Micropigmentación.png" alt="Resultados" class="img-expandida">
+              </div>
+            </div>
+          </div>
+          <!--Botón-->
+          <button class="btn btn-custom mt-2" type="button"
+            data-bs-toggle="collapse" data-bs-target="#resultados"
+            aria-expanded="false" aria-controls="resultados">
+            Leer más
+          </button>
+        </div>
+      </section>
+    </div> <!--div que engloba las secciones clinica y servicios para añadir background conjunto-->
+
+    <!--SECCIÓN TRABAJOS - CARRUSEL BOOTSTRAP-->
+    <section id="Trabajos" class="seccion-trabajos container-fluid"> 
+      <h2 class="text-center mb-4">EXPERTOS PROFESIONALES</h2>
+      <div id="carouselTrabajos" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <!--1º grupo de tres img-->
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-4 d-flex justify-content-center mb-4">
+                <div class="imagen-hover">
+                  <img src="IMAGENES/imagen1.png" class="img-fluid rounded" alt="Maquillaje de novia">
+                  <div class="titulo-hover">Maquillaje de novia</div>
+                </div>
+              </div>
+              <div class="col-md-4 d-flex justify-content-center mb-4">            
+                <div class="imagen-hover">
+                  <img src="IMAGENES/imagen2.png" class="img-fluid rounded" alt="Tratamiento acné">
+                  <div class="titulo-hover">Tratamiento acné</div>
+                </div>
+              </div>
+              <div class="col-md-4 d-flex justify-content-center mb-4">            
+                <div class="imagen-hover">
+                  <img src="IMAGENES/imagen3.png" class="img-fluid rounded" alt="Depilación láser">
+                  <div class="titulo-hover">Depilación láser</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--2º grupo de tres img-->
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-4 d-flex justify-content-center mb-4">
+                <div class="imagen-hover">
+                  <img src="IMAGENES/imagen4.png" class="img-fluid rounded" alt="Tratamiento manchas">
+                  <div class="titulo-hover">Tratamiento manchas</div>
+                </div>
+              </div>
+              <div class="col-md-4 d-flex justify-content-center mb-4">
+                <div class="imagen-hover">
+                  <img src="IMAGENES/imagen5.png" class="img-fluid rounded" alt="Diseño de cejas">
+                  <div class="titulo-hover">Diseño de cejas</div>
+                </div>
+              </div>
+              <div class="col-md-4 d-flex justify-content-center mb-4">
+                <div class="imagen-hover">
+                  <img src="IMAGENES/imagen6.png" class="img-fluid rounded" alt="Micropigmentación labios">
+                  <div class="titulo-hover">Micropigmentación labios</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--3º grupo de tres img-->
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-4 d-flex justify-content-center mb-4">
+                <div class="imagen-hover">
+                  <img src="IMAGENES/imagen7.png" class="img-fluid rounded" alt="Depilación láser">
+                  <div class="titulo-hover">Depilación láser</div>
+                </div>
+              </div>
+              <div class="col-md-4 d-flex justify-content-center mb-4">
+                <div class="imagen-hover">
+                  <img src="IMAGENES/imagen8.png" class="img-fluid rounded" alt="Maquillaje novia">
+                  <div class="titulo-hover">Maquillaje novia</div>
+                </div>
+              </div>
+              <div class="col-md-4 d-flex justify-content-center mb-4">
+                <div class="imagen-hover">
+                  <img src="IMAGENES/imagen9.png" class="img-fluid rounded" alt="Limpieza facial">
+                  <div class="titulo-hover">Limpieza facial</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--4º grupo de tres img-->
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-4 d-flex justify-content-center mb-4">
+                <div class="imagen-hover">
+                  <img src="IMAGENES/imagen10.png" class="img-fluid rounded" alt="Micropigmentación Eyeliner">
+                  <div class="titulo-hover">Micropigmentación Eyeliner</div>
+                </div>
+              </div>
+              <div class="col-md-4 d-flex justify-content-center mb-4">
+                <div class="imagen-hover">
+                  <img src="IMAGENES/imagen11.png" class="img-fluid rounded" alt="Mascarilla vitamina C">
+                  <div class="titulo-hover">Mascarilla vitamina C</div>
+                </div>
+              </div>
+              <div class="col-md-4 d-flex justify-content-center mb-4">
+                <div class="imagen-hover">
+                  <img src="IMAGENES/imagen12.png" class="img-fluid rounded" alt="Maquillaje evento">
+                  <div class="titulo-hover">Maquillaje evento</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Controles-->
+        <button class="carousel-control-prev custom-arrow" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="prev">
+          <i class="bi bi-chevron-left"></i> <!-- Bootstrap Icon -->
+        </button>
+        <button class="carousel-control-next custom-arrow" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="next">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+
+      </div>
+      <p class="text-center mb-4">Clientes satisfechos</p>
+    </section>
+
+    <div class="degradado-animado"><!--div que engloba las secciones clinica y servicios para añadir background conjunto-->
+      <canvas id="canvas-conocenos"></canvas>
+      <!--CONTENIDO DE LA SECCIÓN DATOS EMPRESA-->
+      <section id="Conocenos" class="container-fluid seccion-conocenos">
+        <h2 class="text-center">¿AÚN NO NOS CONOCES?</h2>
+        <canvas id="canvas-conocenos"></canvas>
+        <div class="row text-center g-4 align-items-start">
+          <!--Contacto-->
+          <div class="col-12 col-md-4 columna-animada">
+            <h6>Contacto</h6>
+            <p><strong>Dirección:</strong> Avenida de los Bomberos, 5. Huelva</p>
+            <p><strong>Email:</strong> <a href="mailto:info@beautygirl.com">info@beautygirl.com</a></p>
+            <p><strong>Teléfono:</strong> +622 622 622</p>
+          </div>
+          <!--Redes Sociales-->
+          <div class="col-12 col-md-4 columna-animada">
+            <h6>Redes Sociales</h6>
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+              <img src="IMAGENES/facebook.png" alt="Facebook" width="40">
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+              <img src="IMAGENES/twitter.png" alt="Twitter" width="40">
+            </a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+              <img src="IMAGENES/instagram.png" alt="Instagram" width="40">
+            </a>
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+              <img src="IMAGENES/linkedin.png" width="40">
+            </a>
+          </div>
+          <!--Mapa (oculto en móviles)-->
+          <div class="col-md-4 d-none d-md-block columna-animada">
+            <h6>Mapa</h6>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18...(tu mapa)" 
+              width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </section>
+      <!--SECCIÓN AGENDA - TABLA BOOTSTRAP RESPONSIVE CON COLUMNAS QUE SE OCULTAN EN VERSIÓN MOVIL-->
+      <section id="Agenda" class="container my-5 seccion-agenda">
+        <h2 class="text-center mb-4">AGENDA DE SESIONES DISPONIBLES</h2>
+        <div class="table-responsive agenda-tabla">
+          <table class="table table-bordered table-hover text-center">
+            <thead class="table-light">
+              <tr>
+                <th>Día</th>
+                <th class="d-none d-md-table-cell">Hora</th>
+                <th>Servicio</th>
+                <th class="d-none d-md-table-cell">Especialista</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lunes</td>
+                <td class="d-none d-md-table-cell">10:00 - 12:00</td>
+                <td>Facial Hidratante</td>
+                <td class="d-none d-md-table-cell">Laura G.</td>
+              </tr>
+              <tr>
+                <td>Martes</td>
+                <td class="d-none d-md-table-cell">12:30 - 14:00</td>
+                <td>Depilación Láser</td>
+                <td class="d-none d-md-table-cell">Natalia de León</td>
+              </tr>
+              <tr>
+                <td>Miércoles</td>
+                <td class="d-none d-md-table-cell">15:00 - 17:00</td>
+                <td>Maquillaje Profesional</td>
+                <td class="d-none d-md-table-cell">Carmen P.</td>
+              </tr>
+              <tr>
+                <td>Jueves</td>
+                <td class="d-none d-md-table-cell">10:00 - 12:00</td>
+                <td>Micropigmentación</td>
+                <td class="d-none d-md-table-cell">Esther R.</td>
+              </tr>
+              <tr>
+                <td>Viernes</td>
+                <td class="d-none d-md-table-cell">16:00 - 18:00</td>
+                <td>Tratamiento Antiedad</td>
+                <td class="d-none d-md-table-cell">Lorena B.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div><!--div que engloba las secciones clinica y servicios para añadir background conjunto-->
+    
+    <!--CONTENIDO DE LA SECCION REGISTRO-->
+    <section id="Registro" class="container-fluid seccion-registro fondo-imagen">
+    <div class="row justify-content-start align-items-center min-vh-100 g-0">
+      <div class="col-12 col-md-6 col-lg-5 p-4">
+        <div class="form-wrapper">
+          <h2 class="text-center mb-4">FORMULARIO DE CONTACTO</h2>
+          <form action="" class="miformulario">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre completo</label>
+              <input type="text" class="form-control" id="nombre" placeholder="Escribe tu nombre completo">
+            </div>
+            <div class="mb-3">
+              <label for="telefono" class="form-label">Teléfono</label>
+              <input type="tel" class="form-control" id="telefono" placeholder="Escribe tu teléfono">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="email" placeholder="Escribe tu email">
+            </div>
+            <div class="mb-3">
+              <label for="direccion" class="form-label">Dirección</label>
+              <input type="text" class="form-control" id="direccion" placeholder="Escribe tu dirección">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tipo de solicitud</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tipoSolicitud" id="informacion" required>
+                <label class="form-check-label" for="informacion">Información</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tipoSolicitud" id="cita">
+                <label class="form-check-label" for="cita">Cita</label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!--ICONO FLOTANTE DE BOOTSTRAP-->
+    <a href="#top" class="back-to-top">
+      <i class="bi bi-arrow-up"></i>
+    </a>
+    <!--PIE DE PÁGINA-->
+    <footer class="bg-dark text-white text-center py-4">
+      <div class="container">
+          <p class="mb-2 text-white">© 2024 Mi Sitio Web. Todos los derechos reservados.</p>
+          <ul class="list-unstyled d-flex justify-content-center mb-0">
+              <li class="mx-3">
+                  <a href="#" class="text-white text-decoration-none">Política de privacidad</a>
+              </li>
+              <li class="mx-3">
+                  <a href="#" class="text-white text-decoration-none">Términos y condiciones</a>
+              </li>
+          </ul>
+      </div>
+    </footer>
+     
+    <!--RECOMENDACION - COLOCAR LA ETIQUETA JAVASCRIP DE BOOTSTRAP AL FINAL-->  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
+    <!--CARGO JQUERY-->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>    
+    <!--MI JAVASCRIPT PERSONALIZADO-->
+  <script src="main.js"></script>
+  <!--SONIDO-->
+  <audio id="sonido-hover" src="IMAGENES/sonidoPop.mp3" preload="auto"></audio>
+  </body>
+</html>
