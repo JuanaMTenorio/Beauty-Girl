@@ -634,8 +634,8 @@ body{
     }
     /*CABECERA*/
     .miContenido h1{
-        font-size: 30px;
-        padding: 0px 80px;
+        font-size: 50px;
+        padding: 0px 50px;
     }
     h1:hover{
     color:#331d38;
@@ -643,6 +643,10 @@ body{
     #logoTitulo{
         width: 80px;
     }
+    .iconoInicio {
+    width: 60px;
+    }
+
     /*Añado para asegurarme que el video de la cabecera no tenga zonas vacias en dispositivos pequeños*/
     .video-fondo{
         height: 100%;
